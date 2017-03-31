@@ -37,9 +37,9 @@ public class MultiplicativeInverseInterface extends ParentInterface implements A
 	}
 	
 	private void initLabel(){
-		coresidual = new JLabel("≡");
-		left = new JLabel("x ^ -1 ( mod ");
-		right = new JLabel(" )");
+		coresidual = new JLabel(" ≡ ");
+		left = new JLabel(" x ^ -1 ( mod ");
+		right = new JLabel(" ) ");
 		xequal = new JLabel("x = ");
 		
 		super.getModules().setFont(coresidual, left, right, xequal);
@@ -60,6 +60,7 @@ public class MultiplicativeInverseInterface extends ParentInterface implements A
 		buttons.setExitButton("退出");
 		
 		super.getModules().setFont(buttons.getCalcButton(), buttons.getReturnButton(), buttons.getExitButton());
+		super.getModules().setButtonStyle(buttons.getCalcButton(), buttons.getReturnButton(), buttons.getExitButton());
 		
 		buttons.getCalcButton().addActionListener(this);
 		buttons.getReturnButton().addActionListener(this);
