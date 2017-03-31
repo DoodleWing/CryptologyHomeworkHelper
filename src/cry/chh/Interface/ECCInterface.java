@@ -1,6 +1,7 @@
 package cry.chh.Interface;
 
 import java.awt.Container;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -44,15 +45,17 @@ public class ECCInterface extends ParentInterface implements ActionListener{
 	
 	private void initTextLabel(){
 		aLabel = new JLabel("a = ");
-		bLabel = new JLabel("b = ");
-		pLabel = new JLabel("p = ");
-		leftbracketLabel = new JLabel("(");
-		rightbracketLabel1 = new JLabel(")");
-		rightbracketLabel2 = new JLabel(")");
-		com1Label = new JLabel(", ");
-		com2Label = new JLabel(", ");
+		bLabel = new JLabel("    b = ");
+		pLabel = new JLabel("    p = ");
+		leftbracketLabel = new JLabel(" ( ");
+		rightbracketLabel1 = new JLabel(" ) ");
+		rightbracketLabel2 = new JLabel(" ) ");
+		com1Label = new JLabel(" , ");
+		com2Label = new JLabel(" , ");
 		mulLabel = new JLabel(" * ( ");
 		equalLabel = new JLabel(" = ");
+		
+		super.getModules().setFont(aLabel, bLabel, pLabel, leftbracketLabel, rightbracketLabel1, rightbracketLabel2, com1Label, com2Label, mulLabel, equalLabel);
 	}
 	
 	private void initButton(){
@@ -63,24 +66,31 @@ public class ECCInterface extends ParentInterface implements ActionListener{
 		buttons.getCalcButton().addActionListener(this);
 		buttons.getReturnButton().addActionListener(this);
 		buttons.getExitButton().addActionListener(this);
+		
+		super.getModules().setFont(buttons.getCalcButton(), buttons.getReturnButton(), buttons.getExitButton());
+		super.getModules().setButtonStyle(buttons.getCalcButton(), buttons.getReturnButton(), buttons.getExitButton());
 	}
 	
 	private void initTextField(){
-		jtfa = new JTextField(5);
-		jtfb = new JTextField(5);
-		jtfp = new JTextField(5);
-		jtfn = new JTextField(5);
-		jtfx = new JTextField(5);
-		jtfy = new JTextField(5);
-		jtfcx = new JTextField(5);
-		jtfcy = new JTextField(5);
+		jtfa = new JTextField(3);
+		jtfb = new JTextField(3);
+		jtfp = new JTextField(3);
+		jtfn = new JTextField(3);
+		jtfx = new JTextField(3);
+		jtfy = new JTextField(3);
+		jtfcx = new JTextField(3);
+		jtfcy = new JTextField(3);
+		
+		super.getModules().setFont(jtfa, jtfb, jtfp, jtfn, jtfx, jtfy, jtfcx, jtfcy);
 	}
 	
 	private void initPanel(){
 		equationPanel = new JPanel();
-		
 		calcPanel = new JPanel();
 		buttonPanel = new JPanel();
+		
+		super.getModules().setPanelStyle(FlowLayout.CENTER, 30, 30, buttonPanel);
+		super.getModules().setPanelStyle(FlowLayout.CENTER, 0, 30, equationPanel, calcPanel);
 	}
 	
 	private void drawPanel(){
