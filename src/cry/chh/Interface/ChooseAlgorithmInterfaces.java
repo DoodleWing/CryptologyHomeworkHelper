@@ -38,7 +38,8 @@ public class ChooseAlgorithmInterfaces extends ParentInterface implements Action
 		this.buttons.setExitButton("退出");
 		
 		super.getModules().setFont(buttons.getDLPButton(), buttons.getExitButton(), buttons.getECCButton(), buttons.getMulInverseButton(), buttons.getSMButton());
-		super.getModules().setButtonStyle(buttons.getDLPButton(), buttons.getECCButton(), buttons.getMulInverseButton(), buttons.getSMButton());
+		super.getModules().setButtonStyle(buttons.getDLPButton(), buttons.getECCButton(), buttons.getMulInverseButton(), buttons.getSMButton(), buttons.getExitButton());
+		
 		
 		buttons.getMulInverseButton().addActionListener(this);
 		buttons.getSMButton().addActionListener(this);
