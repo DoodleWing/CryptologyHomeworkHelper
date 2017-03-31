@@ -1,5 +1,6 @@
 package cry.chh.Interface.modules;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -10,9 +11,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Modules {
-	private static final Font font = new Font("等线", Font.BOLD, 16);
+	private static final Font font = new Font("微软雅黑", Font.PLAIN, 16);
 	private FlowLayout flowLayout;
-	private static Dimension dimension = new Dimension(130, 30);
+	private static Dimension dimension = new Dimension(130, 25), FunctionButtonDimension = new Dimension(75, 25);
 	
 	public Modules(){
 		flowLayout = new FlowLayout();
@@ -31,7 +32,14 @@ public class Modules {
 	}
 	
 	public void setButtonStyle(JButton...jButtons){
-		for(int i = 0; i < jButtons.length; i++)jButtons[i].setPreferredSize(dimension);
+		boolean judge;
+		for(int i = 0; i < jButtons.length; i++){
+			judge = jButtons[i].getText() != "计算" && jButtons[i].getText() != "返回" && jButtons[i].getText() != "退出"; 
+//			System.out.println(jButtons[i].getText());
+			if(judge )jButtons[i].setPreferredSize(dimension);
+			else jButtons[i].setPreferredSize(FunctionButtonDimension);
+			jButtons[i].setBackground(Color.decode("#F0F0F0"));
+		}
 	}
 	
 	public void setPanelStyle(int flowlayoutint, int width, int height, JPanel... jPanels){
