@@ -24,7 +24,7 @@ public class ECCInterface extends ParentInterface implements ActionListener{
 	private Container container;
 	private ChooseAlgorithmInterfaces chooseAlgorithmInterfaces;
 	
-	public ECCInterface(ChooseAlgorithmInterfaces chooseAlgorithmInterfaces) {
+	public ECCInterface(ChooseAlgorithmInterfaces chooseAlgorithmInterfaces) { 
 		super((Integer)4, (Integer)1, new String("椭圆曲线算法"));
 		this.initButton();
 		this.initPanel();

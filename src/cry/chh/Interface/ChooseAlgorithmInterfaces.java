@@ -21,7 +21,7 @@ public class ChooseAlgorithmInterfaces extends ParentInterface implements Action
 	private Container container;
 
 
-	public ChooseAlgorithmInterfaces() {		//构造器
+	public ChooseAlgorithmInterfaces() {
 		super((Integer)5, (Integer)2,  new String("请选择一个算法："));
 		this.initButtons();
 		this.initLabel();
@@ -29,7 +29,7 @@ public class ChooseAlgorithmInterfaces extends ParentInterface implements Action
 		this.drawPanel();
 		this.ContainerAdd();
 	}
-	private void initButtons(){		//初始化Buttons
+	private void initButtons(){
 
 		buttons = new Buttons();
 		SMButton = new JButton("平方乘算法");

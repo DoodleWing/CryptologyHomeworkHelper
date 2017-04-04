@@ -26,7 +26,7 @@ public class MultiplicativeInverseInterface extends ParentInterface implements A
 	private ChooseAlgorithmInterfaces chooseAlgorithmInterfaces;
 	
 	public MultiplicativeInverseInterface(ChooseAlgorithmInterfaces chooseAlgorithmInterfaces) {
-		super(3, 1, "求解乘法逆元");
+		super(3, 1, "求解乘法逆元"); 
 		this.initButton();
 		this.initLabel();
 		this.initPanel();

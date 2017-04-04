@@ -21,7 +21,7 @@ public class ParentInterface extends JFrame{
 	}
 
 	public void setRowsColumns(Integer a, Integer b){
-		rows = a;
+		rows = a; 
 		columns = b;
 	}
 	
