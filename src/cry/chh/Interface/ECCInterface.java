@@ -63,12 +63,14 @@ public class ECCInterface extends ParentInterface implements ActionListener{
 		buttons.setCalcButton("计算");
 		buttons.setReturnButton("返回");
 		buttons.setExitButton("退出");
+		buttons.setClearButton("清空");
 		buttons.getCalcButton().addActionListener(this);
 		buttons.getReturnButton().addActionListener(this);
 		buttons.getExitButton().addActionListener(this);
+		buttons.getClearButton().addActionListener(this);
 		
-		super.getModules().setFont(buttons.getCalcButton(), buttons.getReturnButton(), buttons.getExitButton());
-		super.getModules().setButtonStyle(buttons.getCalcButton(), buttons.getReturnButton(), buttons.getExitButton());
+		super.getModules().setFont(buttons.getCalcButton(), buttons.getReturnButton(), buttons.getExitButton(), buttons.getClearButton());
+		super.getModules().setButtonStyle(buttons.getCalcButton(), buttons.getReturnButton(), buttons.getExitButton(), buttons.getClearButton());
 	}
 	
 	private void initTextField(){
@@ -89,7 +91,7 @@ public class ECCInterface extends ParentInterface implements ActionListener{
 		calcPanel = new JPanel();
 		buttonPanel = new JPanel();
 		
-		super.getModules().setPanelStyle(FlowLayout.CENTER, 30, 30, buttonPanel);
+		super.getModules().setPanelStyle(FlowLayout.CENTER, 10, 30, buttonPanel);
 		super.getModules().setPanelStyle(FlowLayout.CENTER, 0, 30, equationPanel, calcPanel);
 	}
 	
@@ -116,6 +118,7 @@ public class ECCInterface extends ParentInterface implements ActionListener{
 		calcPanel.add(rightbracketLabel2);
 		
 		buttonPanel.add(buttons.getCalcButton());
+		buttonPanel.add(buttons.getClearButton());
 		buttonPanel.add(buttons.getReturnButton());
 		buttonPanel.add(buttons.getExitButton());
 	}
@@ -138,6 +141,9 @@ public class ECCInterface extends ParentInterface implements ActionListener{
 				this.setVisible(false);
 				this.dispose();
 				chooseAlgorithmInterfaces.setVisible(true);
+			}
+			if(e.getActionCommand().equals("清空")){
+				super.clearJTextFields(jtfa, jtfb, jtfcx, jtfcy, jtfn, jtfp, jtfx, jtfy);
 			}
 		}catch (Exception exc) {
 			exc.printStackTrace();

@@ -58,13 +58,15 @@ public class MultiplicativeInverseInterface extends ParentInterface implements A
 		buttons.setCalcButton("计算");
 		buttons.setReturnButton("返回");
 		buttons.setExitButton("退出");
+		buttons.setClearButton("清空");
 		
-		super.getModules().setFont(buttons.getCalcButton(), buttons.getReturnButton(), buttons.getExitButton());
-		super.getModules().setButtonStyle(buttons.getCalcButton(), buttons.getReturnButton(), buttons.getExitButton());
+		super.getModules().setFont(buttons.getCalcButton(), buttons.getReturnButton(), buttons.getExitButton(), buttons.getClearButton());
+		super.getModules().setButtonStyle(buttons.getCalcButton(), buttons.getReturnButton(), buttons.getExitButton(), buttons.getClearButton());
 		
 		buttons.getCalcButton().addActionListener(this);
 		buttons.getReturnButton().addActionListener(this);
 		buttons.getExitButton().addActionListener(this);
+		buttons.getClearButton().addActionListener(this);
 	}
 	
 	private void initTextField(){
@@ -80,14 +82,16 @@ public class MultiplicativeInverseInterface extends ParentInterface implements A
 		inPanel = new JPanel();
 		outPanel = new JPanel();
 		
-		super.getModules().setPanelStyle(FlowLayout.CENTER, 0, 10, inPanel, outPanel);
-		super.getModules().setPanelStyle(FlowLayout.CENTER, 60, 10, buttonPanel);
+		super.getModules().setPanelStyle(FlowLayout.CENTER, 0, 20, inPanel, outPanel);
+		super.getModules().setPanelStyle(FlowLayout.CENTER, 10, 10, buttonPanel);
 	}
 	
 	private void drawPanel(){
 		buttonPanel.add(buttons.getCalcButton());
+		buttonPanel.add(buttons.getClearButton());
 		buttonPanel.add(buttons.getReturnButton());
 		buttonPanel.add(buttons.getExitButton());
+
 		
 		inPanel.add(jtfa);
 		inPanel.add(coresidual);
@@ -116,12 +120,12 @@ public class MultiplicativeInverseInterface extends ParentInterface implements A
 				this.dispose();
 				chooseAlgorithmInterfaces.setVisible(true);
 			}
+			if(e.getActionCommand().equals("清空")){
+				super.clearJTextFields(jtfa, jtfp, jtfx);
+			}
 		}catch (Exception exc) {
 			exc.printStackTrace();
 			JOptionPane.showMessageDialog(getParent(), exc.getMessage(), "老铁，输错了……", JOptionPane.ERROR_MESSAGE);
 		}
-			
-		
 	}
-
 }

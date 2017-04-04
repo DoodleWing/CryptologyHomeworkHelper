@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
 
 import cry.chh.Interface.modules.Modules;
 
@@ -27,13 +28,19 @@ public class ParentInterface extends JFrame{
 	public ParentInterface(Integer r, Integer c, String titlestr) {
 		modules = new Modules();
 		this.setTitle("密码学作业助手");
-		this.setSize(screenWidth / 4, screenHeight / 4);
+		this.setSize(screenWidth / 4, screenHeight / 3);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		setRowsColumns(r, c);
 		this.setLayout(new GridLayout(rows,	columns));
 	}
 
+	public void clearJTextFields(JTextField...fields){
+		for(int i = 0; i < fields.length; i++){
+			fields[i].setText("");
+		}
+	}
+	
 	public Modules getModules() {
 		return modules;
 	}

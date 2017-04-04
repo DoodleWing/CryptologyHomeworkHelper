@@ -15,13 +15,14 @@ import cry.chh.Interface.modules.Buttons;
 public class ChooseAlgorithmInterfaces extends ParentInterface implements ActionListener{
 	
 	private Buttons buttons;
-	private JPanel textPanel, button1Panel, button2Panel, exitPanel; 
+	private JButton SMButton, MIButton, DLPButton, ECCButton, TTSButton;
+	private JPanel textPanel, button1Panel, button2Panel, exitPanel, button3Panel; 
 	private JLabel textLabel;
 	private Container container;
 
 
 	public ChooseAlgorithmInterfaces() {		//构造器
-		super((Integer)4, (Integer)2,  new String("请选择一个算法："));
+		super((Integer)5, (Integer)2,  new String("请选择一个算法："));
 		this.initButtons();
 		this.initLabel();
 		this.initPanel();
@@ -30,21 +31,24 @@ public class ChooseAlgorithmInterfaces extends ParentInterface implements Action
 	}
 	private void initButtons(){		//初始化Buttons
 
-		this.buttons = new Buttons();
-		this.buttons.setSMButton("平方乘算法");
-		this.buttons.setMulInverseButton("求解乘法逆元");
-		this.buttons.setDLPButton("离散对数问题");
-		this.buttons.setECCButton("椭圆曲线方程");
+		buttons = new Buttons();
+		SMButton = new JButton("平方乘算法");
+		MIButton = new JButton("求解乘法逆元");
+		DLPButton = new JButton("离散对数问题");
+		ECCButton = new JButton("椭圆曲线方程");
+		TTSButton = new JButton("进制转换");
+		
 		this.buttons.setExitButton("退出");
 		
-		super.getModules().setFont(buttons.getDLPButton(), buttons.getExitButton(), buttons.getECCButton(), buttons.getMulInverseButton(), buttons.getSMButton());
-		super.getModules().setButtonStyle(buttons.getDLPButton(), buttons.getECCButton(), buttons.getMulInverseButton(), buttons.getSMButton(), buttons.getExitButton());
+		super.getModules().setFont(DLPButton, buttons.getExitButton(), ECCButton, MIButton, SMButton, TTSButton);
+		super.getModules().setButtonStyle(DLPButton, ECCButton, MIButton, SMButton, buttons.getExitButton(), TTSButton);
 		
 		
-		buttons.getMulInverseButton().addActionListener(this);
-		buttons.getSMButton().addActionListener(this);
-		buttons.getDLPButton().addActionListener(this);
-		buttons.getECCButton().addActionListener(this);
+		MIButton.addActionListener(this);
+		SMButton.addActionListener(this);
+		DLPButton.addActionListener(this);
+		ECCButton.addActionListener(this);
+		TTSButton.addActionListener(this);
 		buttons.getExitButton().addActionListener(this);
 	}
 	
@@ -57,6 +61,7 @@ public class ChooseAlgorithmInterfaces extends ParentInterface implements Action
 		textPanel = new JPanel();
 		button1Panel = new JPanel();
 		button2Panel = new JPanel();
+		button3Panel = new JPanel();
 		exitPanel = new JPanel();
 	}
 	
@@ -66,6 +71,7 @@ public class ChooseAlgorithmInterfaces extends ParentInterface implements Action
 		container.add(textPanel);
 		container.add(button1Panel);
 		container.add(button2Panel);
+		container.add(button3Panel);
 		container.add(exitPanel);
 	}
 	
@@ -74,13 +80,14 @@ public class ChooseAlgorithmInterfaces extends ParentInterface implements Action
 		//add buttons
 		textPanel.add(textLabel);
 		
-		button1Panel.add(buttons.getMulInverseButton());
-		button1Panel.add(buttons.getSMButton());
-		button2Panel.add(buttons.getDLPButton());
-		button2Panel.add(buttons.getECCButton());
+		button1Panel.add(MIButton);
+		button1Panel.add(SMButton);
+		button2Panel.add(DLPButton);
+		button2Panel.add(ECCButton);
+		button3Panel.add(TTSButton);
 		exitPanel.add(buttons.getExitButton());
 		
-		super.getModules().setPanelStyle(FlowLayout.CENTER, 60, 10, textPanel, button1Panel, button2Panel, exitPanel);
+		super.getModules().setPanelStyle(FlowLayout.CENTER, 60, 10, textPanel, button1Panel, button2Panel, button3Panel, exitPanel);
 
 	}
 	
@@ -103,6 +110,12 @@ public class ChooseAlgorithmInterfaces extends ParentInterface implements Action
 			this.setVisible(false);
 			this.dispose();
 			eccInterface.setVisible(true);
+		}
+		if(e.getActionCommand().equals("进制转换")){
+			TurnToSystemInterface toSystemInterface = new TurnToSystemInterface(this);
+			this.setVisible(false);
+			this.dispose();
+			toSystemInterface.setVisible(true);
 		}
 		if(e.getActionCommand().equals("退出")){
 			this.setVisible(false);

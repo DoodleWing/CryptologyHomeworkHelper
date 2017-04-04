@@ -34,8 +34,7 @@ public class Modules {
 	public void setButtonStyle(JButton...jButtons){
 		boolean judge;
 		for(int i = 0; i < jButtons.length; i++){
-			judge = jButtons[i].getText() != "计算" && jButtons[i].getText() != "返回" && jButtons[i].getText() != "退出"; 
-//			System.out.println(jButtons[i].getText());
+			judge = jButtons[i].getText() != "计算" && jButtons[i].getText() != "返回" && jButtons[i].getText() != "退出"&& jButtons[i].getText() != "清空" && jButtons[i].getText() != "转换"; 
 			if(judge )jButtons[i].setPreferredSize(dimension);
 			else jButtons[i].setPreferredSize(FunctionButtonDimension);
 			jButtons[i].setBackground(Color.decode("#F0F0F0"));
