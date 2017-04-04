@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 
 public class Modules {
 	private static final Font font = new Font("微软雅黑", Font.PLAIN, 16);
-	private FlowLayout flowLayout;
+	private FlowLayout flowLayout; 
 	private static Dimension dimension = new Dimension(130, 25), FunctionButtonDimension = new Dimension(75, 25);
 	
 	public Modules(){

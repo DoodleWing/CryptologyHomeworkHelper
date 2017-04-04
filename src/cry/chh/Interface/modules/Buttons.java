@@ -5,7 +5,7 @@ import javax.swing.JButton;
 public class Buttons {
 	private JButton calcButton, exitButton, returnButton, clearButton;
 	public Buttons(){
-	}
+	} 
 	public JButton getCalcButton() {
 		return calcButton;
 	}
