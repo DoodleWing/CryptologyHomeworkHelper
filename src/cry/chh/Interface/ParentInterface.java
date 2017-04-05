@@ -33,6 +33,7 @@ public class ParentInterface extends JFrame{
 		this.setLocationRelativeTo(null);
 		setRowsColumns(r, c);
 		this.setLayout(new GridLayout(rows,	columns));
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
 	public void clearJTextFields(JTextField...fields){
