@@ -28,7 +28,7 @@ public class ParentInterface extends JFrame{
 	public ParentInterface(Integer r, Integer c, String titlestr) {
 		modules = new Modules();
 		this.setTitle("密码学作业助手");
-		this.setSize(screenWidth / 4, screenHeight / 3);
+		this.setSize((int)(screenWidth / 3.5), screenHeight / 3);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		setRowsColumns(r, c);
