@@ -21,9 +21,7 @@ public class PointersInECC {
 	public PointersInECC(){}
 	
 	public boolean TestTheSame(PointersInECC pointersInECC){
-		boolean boolx = pointersInECC.getX() == this.x;
-		boolean booly = pointersInECC.getY() == this.y;
-		return boolx && booly;
+		return (pointersInECC.getX().equals(this.x)) && (pointersInECC.getY().equals(this.y));
 	}
 	public Integer getX() {
 		return x;
