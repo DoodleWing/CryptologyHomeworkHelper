@@ -14,7 +14,7 @@ public class EllipticCurveCryptosystem {
 		if(pointersInECC1.isZERO() && pointersInECC2.isZERO())return PointersInECC.ZERO;
 		if(pointersInECC1.isZERO() && !pointersInECC2.isZERO())return pointersInECC2;
 		if(!pointersInECC1.isZERO() && pointersInECC2.isZERO())return pointersInECC1;
-		if(!pointersInECC1.TestTheSame(pointersInECC2)){
+		if(pointersInECC1.TestTheSame(pointersInECC2) == false){
 			Integer y = pointersInECC2.getY() - pointersInECC1.getY();
 			Integer x = pointersInECC2.getX() - pointersInECC1.getX();
 			Integer gcd = new GreatestCommonDivisor(y, x).calcGCD();
